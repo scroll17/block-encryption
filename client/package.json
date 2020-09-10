@@ -1,0 +1,23 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "tsc": "tsc",
+    "dev": "ts-node-dev --respawn --transpileOnly main.ts",
+    "watch": "ts-node-dev --respawn --transpileOnly"
+  },
+  "keywords": [],
+  "author": "scroll17",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "<3.8.0",
+    "eslint": "^7.1.0"
+  },
+  "dependencies": {
+    "socket.io-client": "^2.3.0"
+  }
+}
