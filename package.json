@@ -6,7 +6,6 @@
   "main": "server/index.ts",
   "scripts": {
     "tsc": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "watch": "ts-node-dev --respawn --transpile-only"
   },
   "keywords": [],

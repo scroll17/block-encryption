@@ -18,7 +18,7 @@ export class IO {
         });
     }
 
-    getUsername() {
+    getUsername(): Promise<string> {
         return new Promise(resolve => {
             this.rl.question('Enter you name: ', (username) => {
                 this.rl.pause();

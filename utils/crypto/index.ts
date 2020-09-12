@@ -3,11 +3,13 @@ import { Utils } from "./utils";
 
 export namespace Crypto {
     export interface AppData {
+        username: string;
+        options: string[];
         nick?: string;
         rsa?: {
             publicKey: string,
             privateKey: string
-        }
+        };
     }
 
     export function encrypt(data: string, blockSize = 1) {

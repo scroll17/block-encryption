@@ -5,13 +5,18 @@ import { IO } from "../utils/IO";
 import { SocketUtils } from "../utils/socket";
 import { Crypto } from "../utils/crypto";
 
+const appOptions = process.argv.slice(2);
+
 (async () => {
     const io = new IO(process.stdin, process.stdout);
     const username = await io.getUsername();
 
     const socket = socketio.connect("http://176.215.29.207:3636", { reconnection: true });
 
-    const appData: Crypto.AppData = {};
+    const appData: Crypto.AppData = {
+        username,
+        options: appOptions
+    };
 
     console.log('\n--------- CLIENT STARTED ---------');
     socket.on('connect',  () => {
@@ -24,7 +29,7 @@ import { Crypto } from "../utils/crypto";
 
             io.write('red', 'system',`"${appData.nick}" join to chat!.`)
         });
-        socket.emit('join', username);
+        socket.emit('join', appData.username);
 
         SocketUtils.getMessageStrategy(socket, io, appData)
 

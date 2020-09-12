@@ -24,6 +24,10 @@ export namespace SocketUtils {
 
             const { table, blockSize } = JSON.parse(decryptData);
 
+            if(appData.options.includes('--origin-msg')) {
+                io.write('yellow', 'msg', msg);
+            }
+
             const decryptMessage = Crypto.decrypt(msg, table, blockSize);
 
             io.write('green', appData.nick ?? '<empty>', decryptMessage);
