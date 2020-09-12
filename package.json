@@ -15,12 +15,13 @@
   "devDependencies": {
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "<3.8.0",
-    "eslint": "^7.1.0",
     "@types/node": "^14.10.0",
     "@types/socket.io": "^2.1.11",
-    "@types/socket.io-client": "^1.4.33"
+    "@types/socket.io-client": "^1.4.33",
+    "@types/chalk": "^2.2.0"
   },
   "dependencies": {
+    "chalk": "^4.1.0",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0"
   }

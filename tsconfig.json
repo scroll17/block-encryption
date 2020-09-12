@@ -68,6 +68,6 @@
   "include": [
     "./client",
     "./server",
-    "./crypto-utils"
+    "./utils"
   ]
 }

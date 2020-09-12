@@ -31,7 +31,7 @@ export namespace Generate {
         let value;
 
         do {
-            value = Math.floor(min + Math.random() * (max + 1 - min));
+            value = Math.floor(min + Math.random() * (max - min));
 
             if(!uniqueKeys.includes(value)) isUnique = true;
         } while (!isUnique)
