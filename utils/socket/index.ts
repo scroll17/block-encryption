@@ -24,7 +24,7 @@ export namespace SocketUtils {
 
             const { table, blockSize } = JSON.parse(decryptData);
 
-            if(appData.options.includes('--origin-msg')) {
+            if(appData.options.includes('--encrypted-msg')) {
                 io.write('yellow', 'msg', msg);
             }
 
