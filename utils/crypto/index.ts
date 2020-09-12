@@ -2,6 +2,14 @@ import { Generate } from "./generate";
 import { Utils } from "./utils";
 
 export namespace Crypto {
+    export interface AppData {
+        nick?: string;
+        rsa?: {
+            publicKey: string,
+            privateKey: string
+        }
+    }
+
     export function encrypt(data: string, blockSize = 1) {
         const base64String = Buffer.from(data).toString('base64')
 

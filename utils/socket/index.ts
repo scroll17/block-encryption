@@ -1,7 +1,7 @@
 import { Socket } from 'socket.io';
 
 import { Crypto } from "../crypto";
-import {IO} from "../IO";
+import { IO } from "../IO";
 
 export namespace SocketUtils {
     export type MainSocket = Socket | SocketIOClient.Socket;
@@ -15,7 +15,7 @@ export namespace SocketUtils {
         })
     }
 
-    export function getMessageStrategy(socket: MainSocket, io: IO, nick: string) {
+    export function getMessageStrategy(socket: MainSocket, io: IO, appData: Crypto.AppData) {
         let decryptData: string;
 
         socket.on('pre', (data: string) => (decryptData = data))
@@ -23,10 +23,10 @@ export namespace SocketUtils {
             if(!decryptData) throw new Error('No decrypted data.')
 
             const { table, blockSize } = JSON.parse(decryptData);
-            io.write('yellow', 'msg', msg);
 
             const decryptMessage = Crypto.decrypt(msg, table, blockSize);
-            io.write('green', nick, decryptMessage);
+
+            io.write('green', appData.nick ?? '<empty>', decryptMessage);
         })
     }
 }
